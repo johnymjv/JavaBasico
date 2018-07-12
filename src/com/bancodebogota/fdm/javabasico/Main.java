@@ -16,37 +16,26 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+      try{  
         
-        Nodo nodo=new Nodo("1");
-        ListaSimple lista=new ListaSimple(nodo);
+        ListaSimple lista=new ListaSimple("1");
                 
-        nodo=new Nodo("2");
-        lista.insertarNodo(nodo);
         
-        nodo=new Nodo("3");
-        lista.insertarNodo(nodo);
         
-        nodo=new Nodo("4");
-        lista.insertarNodo(nodo);
+        lista.insertarNodo("2");
+        lista.insertarNodo("3");
+        lista.insertarNodo("4");
+        lista.insertarNodo("5");
+        lista.insertarNodo("6");
+        lista.insertarNodo("7");
+        lista.insertarNodo("8");
+        lista.insertarNodo("9");
+        lista.insertarNodo("10");
         
-        nodo=new Nodo("5");
-        lista.insertarNodo(nodo);
         
-        nodo=new Nodo("6");
-        lista.insertarNodo(nodo);
+;
         
-        nodo=new Nodo("7");
-        lista.insertarNodo(nodo);
-        
-        nodo=new Nodo("8");
-        lista.insertarNodo(nodo);
-        
-        nodo=new Nodo("9");
-        lista.insertarNodo(nodo);
-        
-        nodo=new Nodo("10");
-        lista.insertarNodo(nodo);
-        
+       
         lista.listar();
         
         ListaArray listaArray=new ListaArray();
@@ -69,7 +58,9 @@ public class Main {
         listaArray.insertar("17");        
         listaArray.insertar("18");
         
-        
+      }catch(Exception ex){
+          System.out.println(ex.getMessage());
+      }
         
     }
     
