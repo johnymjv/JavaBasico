@@ -9,12 +9,12 @@ package com.bancodebogota.fdm.javabasico;
  *
  * @author jjimen7
  */
-public class ListaSimple {
+public class ListaSimple<T> {
     
     private Nodo root;
     private Nodo nodoAct;
 
-    public ListaSimple(Object objeto) {
+    public ListaSimple(T objeto) {
         Nodo nodo=new Nodo(objeto);
         this.root = nodo;
         this.nodoAct = nodo;
@@ -36,16 +36,14 @@ public class ListaSimple {
         this.nodoAct = nodoAct;
     }
     
-    public void insertarNodo(Object objeto) throws Exception{
+    public void insertarNodo(T objeto) {
         
-        if(objeto instanceof String){
+        
         Nodo nodo=new Nodo(objeto);
        
        this.nodoAct.setNext(nodo);
        this.nodoAct=nodo;
-        }else
-            throw new Exception("Tipo no esperado");
-    
+       
     }
     
     public void listar(){

@@ -18,7 +18,7 @@ public class Main {
         // TODO code application logic here
       try{  
         
-        ListaSimple lista=new ListaSimple("1");
+        ListaSimple<String> lista=new ListaSimple("1");
                 
         
         
@@ -38,7 +38,7 @@ public class Main {
        
         lista.listar();
         
-        ListaArray listaArray=new ListaArray();
+        ListaArray<String> listaArray=new ListaArray();
         listaArray.insertar("1");
         listaArray.insertar("2");        
         listaArray.insertar("3");
