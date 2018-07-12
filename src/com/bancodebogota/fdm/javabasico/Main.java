@@ -17,34 +17,34 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Nodo nodo=new Nodo(1);
+        Nodo nodo=new Nodo("1");
         ListaSimple lista=new ListaSimple(nodo);
                 
-        nodo=new Nodo(2);
+        nodo=new Nodo("2");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(3);
+        nodo=new Nodo("3");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(4);
+        nodo=new Nodo("4");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(5);
+        nodo=new Nodo("5");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(6);
+        nodo=new Nodo("6");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(7);
+        nodo=new Nodo("7");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(8);
+        nodo=new Nodo("8");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(9);
+        nodo=new Nodo("9");
         lista.insertarNodo(nodo);
         
-        nodo=new Nodo(10);
+        nodo=new Nodo("10");
         lista.insertarNodo(nodo);
         
         lista.listar();
