@@ -14,7 +14,8 @@ public class ListaSimple {
     private Nodo root;
     private Nodo nodoAct;
 
-    public ListaSimple(Nodo nodo) {
+    public ListaSimple(Object objeto) {
+        Nodo nodo=new Nodo(objeto);
         this.root = nodo;
         this.nodoAct = nodo;
     }
@@ -35,10 +36,15 @@ public class ListaSimple {
         this.nodoAct = nodoAct;
     }
     
-    public void insertarNodo(Nodo nodo){
-       nodo.setNext(null);
+    public void insertarNodo(Object objeto) throws Exception{
+        
+        if(objeto instanceof String){
+        Nodo nodo=new Nodo(objeto);
+       
        this.nodoAct.setNext(nodo);
        this.nodoAct=nodo;
+        }else
+            throw new Exception("Tipo no esperado");
     
     }
     

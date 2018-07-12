@@ -25,8 +25,8 @@ public class ListaArray {
         this.posicion=0;
     }
     
-    public void insertar(Object objeto){
-    
+    public void insertar(Object objeto) throws Exception{
+    if(objeto instanceof String){
     if((posicion)==(this.TAMANO/INCREMENTO)){        
          this.values= Arrays.copyOf(values,this.TAMANO*INCREMENTO);
           this.TAMANO=this.TAMANO*INCREMENTO;
@@ -35,6 +35,8 @@ public class ListaArray {
       
         System.out.println("Insertado: "+objeto.toString()+" - POSICION: "+this.posicion+" - TAMAÑO: "+this.TAMANO);
          ++this.posicion; 
+    }else
+        throw new Exception("Tipo no permitido");
     }
     
     public void imprimir(){
