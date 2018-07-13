@@ -8,13 +8,15 @@ package com.bancodebogota.fdm.javabasico;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.lang.*;
+import java.util.Iterator;
+import java.util.function.Consumer;
 
 /**
  *
  * @author jjimen7
  * @param <T>
  */
-public class ListaArray<T> {
+public class ListaArray<T> implements Iterator<T>{
 
     private int TAMANO = 4;
     private T[] values;
@@ -52,6 +54,26 @@ public class ListaArray<T> {
 
     public int getTAMANO() {
         return TAMANO;
+    }
+
+    @Override
+    public boolean hasNext() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public T next() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void remove() {
+        Iterator.super.remove(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void forEachRemaining(Consumer<? super T> action) {
+        Iterator.super.forEachRemaining(action); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
