@@ -5,6 +5,8 @@
  */
 package com.bancodebogota.fdm.javabasico;
 
+import java.util.Iterator;
+
 /**
  *
  * @author jjimen7
@@ -32,11 +34,14 @@ public class Main {
         lista.insertarNodo("9");
         lista.insertarNodo("10");
         
+        while(lista.hasNext()) {       
+    System.out.println(lista.next()+" Con Iterator");
+        }
+
         
-;
-        
+                 
        
-        lista.listar();
+       // lista.listar();
         
         ListaArray<String> listaArray=new ListaArray();
         listaArray.insertar("1");
@@ -58,10 +63,18 @@ public class Main {
         listaArray.insertar("17");        
         listaArray.insertar("18");
         
+        for(String valor:listaArray){
+            System.out.println(valor+" Con Iterable");
+            
+        }
+            
+            
+       
+        
       }catch(Exception ex){
           System.out.println(ex.getMessage());
       }
         
     }
-    
-}
+}    
+

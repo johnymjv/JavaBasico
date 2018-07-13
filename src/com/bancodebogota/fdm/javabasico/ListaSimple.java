@@ -12,7 +12,7 @@ import java.util.function.Consumer;
  *
  * @author jjimen7
  */
-public class ListaSimple<T> implements Iterator{
+public class ListaSimple<T> implements Iterator<T>{
     
     private Nodo root;
     private Nodo nodoAct;
@@ -22,6 +22,7 @@ public class ListaSimple<T> implements Iterator{
         Nodo nodo=new Nodo(objeto);
         this.root = nodo;
         this.nodoAct = nodo;
+        this.nodoActualRecorrido=nodo;
     }
 
     public Nodo getRoot() {
@@ -69,9 +70,10 @@ public class ListaSimple<T> implements Iterator{
     }
 
     @Override
-    public Object next() {
+    public T next() {
+        T objeto= (T)this.nodoActualRecorrido.getValue();
         this.nodoActualRecorrido=nodoActualRecorrido.getNext();
-        return this.nodoActualRecorrido.getValue();
+        return objeto;
     }
 
     @Override

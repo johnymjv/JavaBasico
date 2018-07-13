@@ -9,6 +9,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.lang.*;
 import java.util.Iterator;
+import java.util.Spliterator;
 import java.util.function.Consumer;
 
 /**
@@ -16,21 +17,22 @@ import java.util.function.Consumer;
  * @author jjimen7
  * @param <T>
  */
-public class ListaArray<T> implements Iterator<T>{
-
+public class ListaArray<T> implements Iterable<T> {
     private int TAMANO = 4;
     private T[] values;
-
     private final static int INCREMENTO = 2;
     private int posicion;
-
+    
+    
+    // Constructor that takes a "raw" array and stores it
     @SuppressWarnings("unchecked")
     public ListaArray() {
 
         this.values = (T[]) new Object[TAMANO];
         this.posicion = 0;
+       
     }
-
+    
     public void insertar(T objeto) {
 
         if ((posicion) == (this.TAMANO / INCREMENTO)) {
@@ -43,7 +45,7 @@ public class ListaArray<T> implements Iterator<T>{
         ++this.posicion;
 
     }
-
+    
     public void imprimir() {
 
         for (int i = 0; i < this.posicion; i++) {
@@ -51,19 +53,46 @@ public class ListaArray<T> implements Iterator<T>{
         }
 
     }
-
     public int getTAMANO() {
         return TAMANO;
     }
 
     @Override
+    public Iterator<T> iterator() {
+        return new ArrayIterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+        Iterable.super.forEach(action); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return Iterable.super.spliterator(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
+public class ArrayIterator implements Iterator<T>{
+
+    private int posicionRecorrido=0;             
+
+    @Override
     public boolean hasNext() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(posicionRecorrido<posicion)
+            return true;
+        
+        this.posicionRecorrido=0;
+        
+        return false;
     }
 
     @Override
     public T next() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       T valor= values[posicionRecorrido];
+       ++this.posicionRecorrido;
+        return valor;
     }
 
     @Override
@@ -76,4 +105,5 @@ public class ListaArray<T> implements Iterator<T>{
         Iterator.super.forEachRemaining(action); //To change body of generated methods, choose Tools | Templates.
     }
 
+}
 }
