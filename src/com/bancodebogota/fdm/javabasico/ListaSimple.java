@@ -12,17 +12,17 @@ import java.util.function.Consumer;
  *
  * @author jjimen7
  */
-public class ListaSimple<T> implements Iterator<T>{
+public class ListaSimple<T> implements Iterable<T>{
     
     private Nodo root;
     private Nodo nodoAct;
-    private Nodo nodoActualRecorrido;
+    
 
     public ListaSimple(T objeto) {
         Nodo nodo=new Nodo(objeto);
         this.root = nodo;
         this.nodoAct = nodo;
-        this.nodoActualRecorrido=nodo;
+       
     }
 
     public Nodo getRoot() {
@@ -62,16 +62,30 @@ public class ListaSimple<T> implements Iterator<T>{
     }
 
     @Override
+    public Iterator<T> iterator() {
+        return new MyIterator();
+    }
+    
+     class MyIterator implements Iterator<T>{
+         private boolean imprimioElUltimo=false;
+         private Nodo nodoActualRecorrido=root;
+         
+    @Override
     public boolean hasNext() {
         if(this.nodoActualRecorrido.getNext()!=null)
         return true;
-        this.nodoActualRecorrido=this.root;
+       if(this.imprimioElUltimo==false)
+       {
+           this.imprimioElUltimo=true;
+           return true;
+       }
       return false;  
     }
 
     @Override
     public T next() {
         T objeto= (T)this.nodoActualRecorrido.getValue();
+        if(this.imprimioElUltimo==false)
         this.nodoActualRecorrido=nodoActualRecorrido.getNext();
         return objeto;
     }
@@ -85,4 +99,5 @@ public class ListaSimple<T> implements Iterator<T>{
     public void forEachRemaining(Consumer action) {
         Iterator.super.forEachRemaining(action); //To change body of generated methods, choose Tools | Templates.
     }
+}
 }

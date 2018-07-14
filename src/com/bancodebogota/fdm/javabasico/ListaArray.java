@@ -59,7 +59,7 @@ public class ListaArray<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new ArrayIterator();
+        return new MyIterator();
     }
 
     @Override
@@ -74,16 +74,15 @@ public class ListaArray<T> implements Iterable<T> {
 
 
 
-public class ArrayIterator implements Iterator<T>{
+public class MyIterator implements Iterator<T>{
 
     private int posicionRecorrido=0;             
 
     @Override
     public boolean hasNext() {
         if(posicionRecorrido<posicion)
-            return true;
-        
-        this.posicionRecorrido=0;
+            return true;    
+      
         
         return false;
     }
