@@ -7,6 +7,7 @@ package com.bancodebogota.fdm.javabasico;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -23,7 +24,7 @@ public class Main {
         try {
           
             Main main=new Main();
-            main.ejercicioTres();
+            main.ejercicioCinco();
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -31,18 +32,17 @@ public class Main {
 
     }
     
-    public void ejercicioTres(){
-      ArrayList array=new ArrayList();
+    public void ejercicioCinco(){
+      ArrayList<String> array=new ArrayList();
       for(int i=1;i<=20;i++)
       {
       array.add(i+"");
       
       }
-      Collections.reverse(array);
       
-      for(Object valor:array){
-          System.out.println(valor);
-      }
+      array.stream().sorted(Comparator.reverseOrder()).filter(e->Integer.valueOf(e)>10).forEach(e->System.out.println(e));
+      
+     
       
     
     }
