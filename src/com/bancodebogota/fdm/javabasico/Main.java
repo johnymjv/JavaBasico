@@ -8,7 +8,10 @@ package com.bancodebogota.fdm.javabasico;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.SortedMap;
 
 /**
  *
@@ -24,7 +27,7 @@ public class Main {
         try {
           
             Main main=new Main();
-            main.ejercicioCinco();
+            main.ejercicioSeis();
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -32,16 +35,23 @@ public class Main {
 
     }
     
-    public void ejercicioCinco(){
-      ArrayList<String> array=new ArrayList();
-      for(int i=1;i<=20;i++)
-      {
-      array.add(i+"");
+    public void ejercicioSeis(){
+     
+        Map<Integer ,String > mapa=new HashMap<Integer,String>();
       
+      for(int i=1;i<=100;i++){
+          
+          mapa.put(i,new StringBuilder(i+"").reverse().toString() );
+          
       }
       
-      array.stream().sorted(Comparator.reverseOrder()).filter(e->Integer.valueOf(e)>10).forEach(e->System.out.println(e));
       
+        System.out.println(mapa.values());  
+      
+          
+      
+      
+        mapa.values().stream().sorted(Comparator.reverseOrder()).forEach(e->System.out.println(e));
      
       
     
