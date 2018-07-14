@@ -46,4 +46,21 @@ public class Main {
       
     
     }
+    
+    public void ejercicioCuatro(){
+      ArrayList<String> array=new ArrayList();
+      for(int i=1;i<=20;i++)
+      {
+      array.add(i+"");
+      
+      }
+      Collections.reverse(array);
+      
+      for(String valor:array){
+          System.out.println(valor);
+      }
+      
+    
+    }
+    
 }
