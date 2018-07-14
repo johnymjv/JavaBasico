@@ -5,6 +5,8 @@
  */
 package com.bancodebogota.fdm.javabasico;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -19,31 +21,29 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         try {
-
-            ListaSimple<String> lista = new ListaSimple("1");
-
-            for (int i = 2; i <= 10; i++) {
-                lista.insertarNodo(i + "");
-            }
-
-            for (String valor : lista) {
-                System.out.println(valor);
-            }
-
-            // lista.listar();
-            ListaArray<String> listaArray = new ListaArray();
-            for (int i = 0; i < 18; i++) {
-                listaArray.insertar(i + "");
-            }
-
-            for (String valor : listaArray) {
-                System.out.println(valor);
-
-            }
+          
+            Main main=new Main();
+            main.ejercicioTres();
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
 
+    }
+    
+    public void ejercicioTres(){
+      ArrayList array=new ArrayList();
+      for(int i=1;i<=20;i++)
+      {
+      array.add(i+"");
+      
+      }
+      Collections.reverse(array);
+      
+      for(Object valor:array){
+          System.out.println(valor);
+      }
+      
+    
     }
 }
