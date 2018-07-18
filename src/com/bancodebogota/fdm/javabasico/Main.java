@@ -6,6 +6,7 @@
 package com.bancodebogota.fdm.javabasico;
 
 import java.io.File;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,11 +14,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.SortedMap;
-
+import java.io.BufferedInputStream;
 /**
  *
  * @author jjimen7
  */
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 public class Main {
 
     /**
@@ -30,6 +38,7 @@ public class Main {
             Main main=new Main();
             //main.ejercicioSeis();
             main.leerArchivo();
+            //main.leerArchivo2();
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -40,34 +49,44 @@ public class Main {
     
     public void leerArchivo(){
         
-       File file = new File("C:\\sincronizar\\Curso Java Banco\\JavaBasico\\JavaBasico\\README.md");
+       File file = new File("ListaArray.java");
         System.out.println("Nombre del Archivo:"+file.getName());
         System.out.println("Path relativo:"+file.getPath());
         System.out.println("Path absoluto:"+file.getAbsolutePath());
         System.out.println("Directorio padre"+file.getParent());
-        System.out.println(file.exists()?"Existe":"No existe");
-    
+        System.out.println((file.exists())?"Existe":"No existe");
+        System.out.println("Ultima Modificacion:  "+file.lastModified());
+        System.out.println((file.canWrite())?"es de escritura":"no es de escritura");
+        System.out.println((file.canRead())?"es de lectura":"no es de lectura");
+        System.out.println((file.isFile())?"archivo normal":"no normal");
+        System.out.println("Tamaño:"+file.length()+" Bytes");
     }
     
-    public void ejercicioSeis(){
-     
-        Map<Integer ,String > mapa=new HashMap<Integer,String>();
-      
-      for(int i=1;i<=100;i++){
-          
-          mapa.put(i,new StringBuilder(i+"").reverse().toString() );
-          
-      }
-      
-      
-        System.out.println(mapa.values());  
-      
-          
-      
-      
-        mapa.values().stream().sorted(Comparator.reverseOrder()).forEach(e->System.out.println(e));
-     
-      
+    public void leerArchivo2() throws FileNotFoundException, IOException{
+        PrintStream out=null,console=null;
+    try{
+    console=System.out;
+    BufferedInputStream in = new BufferedInputStream(new FileInputStream("ListaArray.java"));
+    
+    out= new PrintStream(new BufferedOutputStream(new FileOutputStream("test.out")));
+    
+    System.setIn(in);
+    System.setOut(out);
+    System.setErr(out);
+    
+    BufferedReader br= new  BufferedReader(new InputStreamReader(System.in));
+    
+    String s;
+    while((s=br.readLine())!=null){
+        System.out.println(s);
     
     }
+    }finally{
+    if(out!=null)
+      out.close();
+    }
+    System.setOut(console);
+    }
+    
+    
 }

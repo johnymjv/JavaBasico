@@ -63,6 +63,7 @@ public class ListaSimple<T> implements Iterator<T>{
 
     @Override
     public boolean hasNext() {
+        
         if(this.nodoActualRecorrido.getNext()!=null)
         return true;
         this.nodoActualRecorrido=this.root;
