@@ -5,6 +5,7 @@
  */
 package com.bancodebogota.fdm.javabasico;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -27,12 +28,25 @@ public class Main {
         try {
           
             Main main=new Main();
-            main.ejercicioSeis();
+            //main.ejercicioSeis();
+            main.leerArchivo();
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
 
+    }
+    
+    
+    public void leerArchivo(){
+        
+       File file = new File("C:\\sincronizar\\Curso Java Banco\\JavaBasico\\JavaBasico\\README.md");
+        System.out.println("Nombre del Archivo:"+file.getName());
+        System.out.println("Path relativo:"+file.getPath());
+        System.out.println("Path absoluto:"+file.getAbsolutePath());
+        System.out.println("Directorio padre"+file.getParent());
+        System.out.println(file.exists()?"Existe":"No existe");
+    
     }
     
     public void ejercicioSeis(){
